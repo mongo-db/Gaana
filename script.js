@@ -9,6 +9,19 @@ let gif = document.getElementById('gif');
 let masterSongName = document.getElementById('masterSongName');
 let songItems = Array.from(document.getElementsByClassName('songItem'));
 
+var now = new Date();
+var hrs = now.getHours(); //getHours takes visitors local time, not server time.
+
+var msg = "";
+
+if (hrs >  0) msg = "Mornin' Sunshine!"; // REALLY early
+else if (hrs >  6) msg = "Good morning";      // After 6am
+else if (hrs > 12) msg = "Good afternoon";    // After 12pm
+else if (hrs > 17) msg = "Good evening";      // After 5pm
+else msg = "Go to bed!";        // After 10pm
+
+document.getElementById("greeting-msg").innerHTML=msg;
+
 let songs = [
     {songName: "Warriyo - Mortals [NCS Release]", filePath: "songs/1.mp3", coverPath: "covers/1.jpg"},
     {songName: "Cielo - Huma-Huma", filePath: "songs/2.mp3", coverPath: "covers/2.jpg"},
